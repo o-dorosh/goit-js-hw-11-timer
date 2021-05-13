@@ -8,6 +8,8 @@ const refs = {
  class CountdownTimer {
     constructor({targetDate}) {
         this.targetDate = targetDate;
+
+        this.init()
     }
 
     startTimerBack() {
@@ -17,11 +19,19 @@ const refs = {
             const deltaTime =  this.targetDate - currentTime;
             const {days, hours, mins, secs} = this.getTimeComponents(deltaTime);
 
-            console.log(`${days}:${hours}:${mins}:${secs}`);
+          //  console.log(`${days}:${hours}:${mins}:${secs}`);
             this.updateTimer({days, hours, mins, secs})
            
         }, 1000)
     }
+
+    init() {
+        const currentTime = Date.now()
+        const deltaTime =  this.targetDate - currentTime;
+        const time = this.getTimeComponents(deltaTime);
+        this.updateTimer(time);
+    }
+
 
     getTimeComponents(time) {
         const days = Math.floor(time / (1000 * 60 * 60 * 24));
