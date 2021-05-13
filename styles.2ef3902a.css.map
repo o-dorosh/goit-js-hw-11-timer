@@ -1,1 +1,0 @@
-{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAIA,cAHI,YASJ,CANA,OAEI,qBAAsB,CACtB,kBAAmB,CAEnB,UACJ","file":"styles.2ef3902a.css","sourceRoot":"../src","sourcesContent":[".timer {\n    display: flex;\n}\n\n.field {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n\n    width: 75px;\n}"]}
