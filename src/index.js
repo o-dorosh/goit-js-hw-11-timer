@@ -2,14 +2,16 @@ const refs = {
     days: document.querySelector('[data-value="days"]'),
     hours: document.querySelector('[data-value="hours"]'),
     mins: document.querySelector('[data-value="mins"]'),
-    secs: document.querySelector('[data-value="secs"]')
+    secs: document.querySelector('[data-value="secs"]'),
+    title: document.querySelector('.title')
  }
  
  class CountdownTimer {
     constructor({targetDate}) {
         this.targetDate = targetDate;
 
-        this.init()
+        this.init();
+        this.dateNow()
     }
 
     startTimerBack() {
@@ -25,13 +27,21 @@ const refs = {
         }, 1000)
     }
 
+    dateNow() {
+        const today = this.targetDate;
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        
+       // document.write(today);
+        refs.title.textContent = `Until ${dd}.${mm} left:`
+    }
+
     init() {
         const currentTime = Date.now()
         const deltaTime =  this.targetDate - currentTime;
         const time = this.getTimeComponents(deltaTime);
         this.updateTimer(time);
     }
-
 
     getTimeComponents(time) {
         const days = Math.floor(time / (1000 * 60 * 60 * 24));

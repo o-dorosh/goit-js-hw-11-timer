@@ -1,5 +1,8 @@
 .timer {
+    margin: 10px;
     display: flex;
+    border: 1px solid;
+    width: 350px;
 }
 
 .field {
@@ -8,4 +11,11 @@
     align-items: center;
 
     width: 75px;
+
+    font-size: large;
+}
+
+.title {
+    padding: 10px;
+    color: red;
 }
